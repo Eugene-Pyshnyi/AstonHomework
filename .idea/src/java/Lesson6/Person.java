@@ -23,5 +23,6 @@ public class Person {
     public void showInfo() {
         System.out.printf("Name: %s,\nAge: %d,\nPosition: %s,\nEmail: %s,\nPhone number: %s,\nSalary: %d.\n",
                 fullName, age, position, email, phoneNumber, salary);
+        System.out.println();
     }
 }

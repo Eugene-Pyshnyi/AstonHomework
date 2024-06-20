@@ -17,6 +17,5 @@ public class Main {
         for (Person person : persons) {
             person.showInfo();
         }
-        persons[0].showInfo();
     }
 }
