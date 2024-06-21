@@ -8,9 +8,6 @@ public class Park {
     private String name;
 
     private List<Attraction> attractions;
-    public Park() {
-
-    }
 
     public Park(String name) {
         this.name = name;
