@@ -1,6 +1,6 @@
 package Lesson6;
 
-public class Main {
+public class Beginner {
 
     public static void main(String[] args) {
         Person[] persons = new Person[5];
@@ -17,5 +17,11 @@ public class Main {
         for (Person person : persons) {
             person.showInfo();
         }
+
+        Park park = new Park("Dinopark");
+        park.addAttraction("T-rex doll", "09:00 - 20:00", 5.00);
+        park.addAttraction("Dino ferris wheel", "08:00 - 23:00", 4.5);
+        park.addAttraction("Dino carousel", "10:00 - 21:00", 2);
+        park.showInfo();
     }
 }
