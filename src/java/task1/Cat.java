@@ -1,11 +1,11 @@
-package task1.cats;
+package task1;
 
 import task1.Animal;
 
 public class Cat extends Animal {
-    private String name;
     public Cat(String name) {
-        this.name = name;
+        super(name);
+        catCount++;
     }
 
     @Override
@@ -13,7 +13,7 @@ public class Cat extends Animal {
         if (distance <= 200) {
             System.out.println("\uD83D\uDC08 " + name + " пробежал " + distance + "м.");
         } else {
-            System.out.println("\uD83D\uDC08 Слишком далеко!");
+            System.out.println("\uD83D\uDC08 " + name + " не может пробежать " + distance + " метров!");
         }
     }
 

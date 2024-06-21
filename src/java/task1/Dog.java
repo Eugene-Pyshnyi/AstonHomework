@@ -1,13 +1,11 @@
-package task1.dogs;
+package task1;
 
 import task1.Animal;
 
-import java.sql.SQLOutput;
-
 public class Dog extends Animal {
-    public String name;
     public Dog(String name) {
-        this.name = name;
+        super(name);
+        dogCount++;
     }
 
     @Override
@@ -15,7 +13,7 @@ public class Dog extends Animal {
         if (distance <= 500) {
             System.out.println("\uD83D\uDC15 " + name + " пробежал " + distance + "м.");
         } else {
-            System.out.println("\uD83D\uDC15 Слишком далеко!");
+            System.out.println("\uD83D\uDC15 " + name + " не может пробежать " + distance + " метров!");
         }
     }
 
@@ -24,7 +22,7 @@ public class Dog extends Animal {
         if (distance <= 10) {
             System.out.println("\uD83D\uDC15 " + name + " проплыл " + distance + "м.");
         } else {
-            System.out.println("\uD83D\uDC15 Слишком далеко!");
+            System.out.println("\uD83D\uDC15 " + name + " не может проплыть " + distance + " метров!");
         }
     }
 }
