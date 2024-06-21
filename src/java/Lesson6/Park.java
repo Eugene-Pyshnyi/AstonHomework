@@ -1,15 +1,10 @@
 package Lesson6;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class Park {
 
-    @Setter
     private String name;
 
     private List<Attraction> attractions;
@@ -33,7 +28,6 @@ public class Park {
             System.out.println(attraction);
         }
     }
-    @Getter
     public class Attraction{
         private String name;
         private String workHours;
