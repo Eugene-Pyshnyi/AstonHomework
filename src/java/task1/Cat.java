@@ -1,7 +1,5 @@
 package task1;
 
-import task1.Animal;
-
 public class Cat extends Animal {
     public Cat(String name) {
         super(name);
@@ -20,5 +18,8 @@ public class Cat extends Animal {
     @Override
     public void swim(int distance) {
         System.out.println("\uD83D\uDC08 Котики не умеют плавать!");
+    }
+    public void eat() {
+
     }
 }
