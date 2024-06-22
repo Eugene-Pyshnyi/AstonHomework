@@ -31,44 +31,4 @@ public class Triangle implements TriangleInfo {
                 "\nЦвет заливки: " + areaColor +
                 "\nЦвет границы: " + borderColor);
     }
-
-    public double getaSide() {
-        return aSide;
-    }
-
-    public void setaSide(double aSide) {
-        this.aSide = aSide;
-    }
-
-    public double getbSide() {
-        return bSide;
-    }
-
-    public void setbSide(double bSide) {
-        this.bSide = bSide;
-    }
-
-    public double getcSide() {
-        return cSide;
-    }
-
-    public void setcSide(double cSide) {
-        this.cSide = cSide;
-    }
-
-    public Color getAreaColor() {
-        return areaColor;
-    }
-
-    public void setAreaColor(Color areaColor) {
-        this.areaColor = areaColor;
-    }
-
-    public Color getBorderColor() {
-        return borderColor;
-    }
-
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
-    }
 }

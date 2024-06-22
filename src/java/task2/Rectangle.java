@@ -29,36 +29,4 @@ public class Rectangle implements RectangleInfo {
                 "\nЦвет заливки: " + areaColor +
                 "\nЦвет границы: " + borderColor);
     }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public Color getAreaColor() {
-        return areaColor;
-    }
-
-    public void setAreaColor(Color areaColor) {
-        this.areaColor = areaColor;
-    }
-
-    public Color getBorderColor() {
-        return borderColor;
-    }
-
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
-    }
 }

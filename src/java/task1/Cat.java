@@ -14,7 +14,7 @@ public class Cat extends Animal {
 
     private int catNeedsToEat() {
         Random random = new Random();
-        return random.nextInt(20) + 1;
+        return random.nextInt(25) + 5;
     }
 
     @Override
@@ -36,11 +36,11 @@ public class Cat extends Animal {
             return;
         }
         if (bowl.getFoodAmount() < needToBeFull) {
-            System.out.println("В миске недостаточно еды! " + name + " нужно " + needToBeFull + ".");
+            System.out.println("В миске недостаточно еды! " + name + " нужно " + needToBeFull + ". " + name + " остался голодным.");
             return;
         }
         isHungry = false;
-        bowl.setFoodAmount(0);
+        bowl.setFoodAmount(bowl.getFoodAmount() - needToBeFull);
         System.out.println(name + " теперь сыт.");
     }
 }

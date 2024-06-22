@@ -24,22 +24,4 @@ public class Circle implements CircleInfo {
                 "\nЦвет заливки: " + areaColor +
                 "\nЦвет границы: " + borderColor);
     }
-    public double getRadius() {
-        return radius;
-    }
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-    public Color getBorderColor() {
-        return borderColor;
-    }
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
-    }
-    public Color getAreaColor() {
-        return areaColor;
-    }
-    public void setAreaColor(Color areaColor) {
-        this.areaColor = areaColor;
-    }
 }

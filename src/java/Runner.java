@@ -8,20 +8,7 @@ import task2.Triangle;
 
 public class Runner {
     public static void main(String[] args) {
-        Cat cat = new Cat("Test");
-        Cat cat1 = new Cat("Test1");
-        Cat cat2 = new Cat("Test2");
-        Bowl bowl = new Bowl();
-        bowl.food();
-        cat.eat(bowl);
-        cat1.eat(bowl);
-        cat2.eat(bowl);
-        bowl.food();
-        bowl.putFood();
-        bowl.food();
-        cat.eat(bowl);
-
-        //task 1
+        //task 1.1
         Cat barsik = new Cat("Барсик");
         Cat phobos = new Cat("Фобос");
         Cat persik = new Cat("Персик");
@@ -37,10 +24,25 @@ public class Runner {
         wolf.run(600);
         sharik.swim(5);
         tuzik.swim(30);
+        System.out.println();
 
-        System.out.println("Котиков всего: " + Animal.getCatCount());
-        System.out.println("Собачек всего: " + Animal.getDogCount());
-        System.out.println("Животных всего: " + Animal.getAnimalCount());
+        //task 1.2
+        Bowl bowl = new Bowl();
+        Cat[] kittens = new Cat[5];
+        kittens[0] = new Cat("Чиби");
+        kittens[1] = new Cat("Чёрный");
+        kittens[2] = new Cat("Гараж");
+        kittens[3] = new Cat("Снежок");
+        kittens[4] = new Cat("Васька");
+        for (Cat kitten : kittens) {
+            bowl.food();
+            kitten.eat(bowl);
+            bowl.putFood();
+        }
+
+        System.out.println("\nКотиков всего: " + Animal.getCatCount() + "\n" +
+                "Собачек всего: " + Animal.getDogCount() + "\n" +
+                "Животных всего: " + Animal.getAnimalCount() + "\n");
 
         //task 2
         Circle circle = new Circle(4.5);
