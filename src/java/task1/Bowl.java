@@ -9,7 +9,7 @@ public class Bowl {
     }
     private int foodAmountInBowl() {
         Random random = new Random();
-        return random.nextInt(100) + 1;
+        return random.nextInt(100);
     }
     public void food() {
         System.out.println("Еды в миске: " + getFoodAmount());
