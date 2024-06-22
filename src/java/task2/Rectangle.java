@@ -1,27 +1,27 @@
 package task2;
 public class Rectangle implements RectangleInfo {
-    public double aSide;
-    public double bSide;
+    public double width;
+    public double length;
     private double perimeter;
     private double area;
     public Color areaColor = Color.YELLOW;
     public Color borderColor = Color.ORANGE;
 
     public Rectangle(double aSide, double bSide) {
-        this.aSide = aSide;
-        this.bSide = bSide;
+        this.width = aSide;
+        this.length = bSide;
         countRectanglePerimeter();
         countRectangleArea();
     }
 
     @Override
     public void countRectanglePerimeter() {
-        perimeter = calculateRectanglePerameter(aSide, bSide);
+        perimeter = calculateRectanglePerameter(width, length);
     }
 
     @Override
     public void countRectangleArea() {
-        area = calculateRectangleArea(aSide, bSide);
+        area = calculateRectangleArea(width, length);
     }
     public void showInfo() {
         System.out.println("\nПериметр прямоугольника = " + perimeter +
@@ -30,20 +30,20 @@ public class Rectangle implements RectangleInfo {
                 "\nЦвет границы: " + borderColor);
     }
 
-    public double getaSide() {
-        return aSide;
+    public double getWidth() {
+        return width;
     }
 
-    public void setaSide(double aSide) {
-        this.aSide = aSide;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
-    public double getbSide() {
-        return bSide;
+    public double getLength() {
+        return length;
     }
 
-    public void setbSide(double bSide) {
-        this.bSide = bSide;
+    public void setLength(double length) {
+        this.length = length;
     }
 
     public Color getAreaColor() {
