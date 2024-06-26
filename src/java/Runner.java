@@ -5,14 +5,16 @@ public class Runner {
     public static void main(String[] args) {
         ArrayChecker arrayChecker = new ArrayChecker();
 
-        String[][] correctArray = {
-                {"1", "2", "3", "4"},
-                {"5", "6", "7", "8"},
-                {"9", "10", "11", "12"},
-                {"13", "14", "15", "16"}
+        String[][] array = {
+                {"50", "34", "323", "41"},
+                {"50", "16", "37", "28"},
+                {"99", "10", "181", "123"},
+                {"135", "14", "115", "100"}
         };
         try {
-            arrayChecker.checkArraySize(correctArray);
+            int sum = arrayChecker.arraySum(array);
+            System.out.println("Сумма элементов массива: " + sum);
+            arrayChecker.arraySum(array);
         } catch (MyArraySizeException exception) {
             exception.printStackTrace();
         } catch (MyArrayDataException exception) {

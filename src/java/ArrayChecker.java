@@ -3,7 +3,7 @@ import Exceptions.MyArraySizeException;
 
 public class ArrayChecker {
     private int sum = 0;
-    public void checkArraySize(String[][] array) {
+    public int arraySum(String[][] array) {
         if (array.length != 4) {
             throw new MyArraySizeException("Ожидаемое количество строк массива: 4");
         }
@@ -20,9 +20,8 @@ public class ArrayChecker {
                 } catch (NumberFormatException exception) {
                    throw new MyArrayDataException("Некорректные данные на позиции: [" + i + "][" + j + "]");
                 }
-                System.out.print(array[i][j] + " ");
             }
-            System.out.println();
         }
+        return sum;
     }
 }
