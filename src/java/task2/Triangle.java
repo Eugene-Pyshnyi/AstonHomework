@@ -1,4 +1,5 @@
 package task2;
+
 public class Triangle implements TriangleInfo {
     public double aSide;
     public double bSide;
@@ -25,6 +26,7 @@ public class Triangle implements TriangleInfo {
     public void countTriangleArea() {
         area = calculateTriangleArea(aSide, bSide, cSide);
     }
+
     public void showInfo() {
         System.out.println("\nПериметр треугольника = " + perimeter +
                 "\nПлощадь треугольника = " + area +

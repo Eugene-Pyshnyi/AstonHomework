@@ -11,7 +11,8 @@ public abstract class Animal {
         animalCount++;
     }
 
-    public abstract void run (int distance);
+    public abstract void run(int distance);
+
     public abstract void swim(int distance);
 
     public String getName() {

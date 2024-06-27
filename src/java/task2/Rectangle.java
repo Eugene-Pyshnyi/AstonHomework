@@ -1,4 +1,5 @@
 package task2;
+
 public class Rectangle implements RectangleInfo {
     public double width;
     public double length;
@@ -23,6 +24,7 @@ public class Rectangle implements RectangleInfo {
     public void countRectangleArea() {
         area = calculateRectangleArea(width, length);
     }
+
     public void showInfo() {
         System.out.println("\nПериметр прямоугольника = " + perimeter +
                 "\nПлощадь прямоугольника = " + area +

@@ -5,6 +5,7 @@ import java.util.Random;
 public class Cat extends Animal {
     private boolean isHungry;
     private final int needToBeFull;
+
     public Cat(String name) {
         super(name);
         catCount++;
@@ -30,6 +31,7 @@ public class Cat extends Animal {
     public void swim(int distance) {
         System.out.println("\uD83D\uDC08 Котики не умеют плавать!");
     }
+
     public void eat(Bowl bowl) {
         if (!isHungry) {
             System.out.println(name + " не голоден.");
