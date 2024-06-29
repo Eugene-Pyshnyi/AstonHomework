@@ -22,6 +22,7 @@ public class Beginner {
         park.addAttraction("T-rex doll", "09:00 - 20:00", 5.00);
         park.addAttraction("Dino ferris wheel", "08:00 - 23:00", 4.5);
         park.addAttraction("Dino carousel", "10:00 - 21:00", 2);
+        park.addAttraction("Dino chew", "09:00 - 20:00", 3.00);
         park.showInfo();
     }
 }

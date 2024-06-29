@@ -26,14 +26,10 @@ public class Park {
         }
     }
 
-    public class Attraction {
+        static class Attraction {
         private String name;
         private String workHours;
         private double price;
-
-        public Attraction() {
-
-        }
 
         public Attraction(String info, String workTime, double price) {
             this.name = info;
