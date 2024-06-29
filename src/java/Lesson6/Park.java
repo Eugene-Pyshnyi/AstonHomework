@@ -31,7 +31,7 @@ public class Park {
         private String workHours;
         private double price;
 
-        public Attraction(String info, String workTime, double price) {
+        private Attraction(String info, String workTime, double price) {
             this.name = info;
             this.workHours = workTime;
             this.price = price;
