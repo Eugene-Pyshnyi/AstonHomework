@@ -26,7 +26,7 @@ public class Park {
         }
     }
 
-        static class Attraction {
+        private class Attraction {
         private String name;
         private String workHours;
         private double price;
