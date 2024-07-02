@@ -20,9 +20,9 @@ public class Runner {
         barsik.run(150);
         phobos.run(300);
         persik.swim(30);
-        bobik.run(300);
+        bobik.run(0);
         wolf.run(600);
-        sharik.swim(5);
+        sharik.swim(0);
         tuzik.swim(30);
         System.out.println();
 
@@ -40,8 +40,8 @@ public class Runner {
             bowl.putFood();
         }
 
-        System.out.println("\nКотиков всего: " + Animal.getCatCount() + "\n" +
-                "Собачек всего: " + Animal.getDogCount() + "\n" +
+        System.out.println("\nКотиков всего: " + Cat.getCatCount() + "\n" +
+                "Собачек всего: " + Dog.getDogCount() + "\n" +
                 "Животных всего: " + Animal.getAnimalCount() + "\n");
 
         //task 2
