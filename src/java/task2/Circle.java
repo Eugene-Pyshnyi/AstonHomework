@@ -1,31 +1,26 @@
 package task2;
 
-public class Circle implements CircleInfo {
-    private double perimeter;
-    private double area;
-    public double radius;
-    public Color borderColor = Color.WHITE;
-    public Color areaColor = Color.BLACK;
+public class Circle extends GeometricFigure {
+    private double radius;
 
-    public Circle(double radius) {
+    public Circle(double radius, Color areaColor, Color borderColor) {
+        super(areaColor, borderColor);
         this.radius = radius;
-        countCirclePerimeter();
-        countCircleArea();
     }
 
     @Override
-    public void countCirclePerimeter() {
-        perimeter = calculateCirclePerimeter(radius);
+    public double perimeter() {
+        return 2 * Math.PI * radius;
     }
 
     @Override
-    public void countCircleArea() {
-        area = calculateCircleArea(radius);
+    public double area() {
+        return Math.PI * (radius * radius);
     }
 
     public void showInfo() {
-        System.out.println("\nПериметр круга = " + perimeter +
-                "\nПлощадь круга = " + area +
+        System.out.println("\nПериметр круга = " + perimeter() +
+                "\nПлощадь круга = " + area() +
                 "\nЦвет заливки: " + areaColor +
                 "\nЦвет границы: " + borderColor);
     }

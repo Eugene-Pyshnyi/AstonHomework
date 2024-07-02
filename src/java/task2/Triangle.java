@@ -1,35 +1,30 @@
 package task2;
 
-public class Triangle implements TriangleInfo {
+public class Triangle extends GeometricFigure {
     public double aSide;
     public double bSide;
     public double cSide;
-    private double perimeter;
-    private double area;
-    public Color areaColor = Color.RED;
-    public Color borderColor = Color.BLUE;
-
-    public Triangle(double aSide, double bSide, double cSide) {
+    public Triangle(double aSide, double bSide, double cSide, Color areaColor, Color boderColor) {
+        super(areaColor, boderColor);
         this.aSide = aSide;
         this.bSide = bSide;
         this.cSide = cSide;
-        countTrianglePerimeter();
-        countTriangleArea();
     }
 
     @Override
-    public void countTrianglePerimeter() {
-        perimeter = calculateTrianglePerimeter(aSide, bSide, cSide);
+    public double perimeter() {
+        return aSide + bSide + cSide;
     }
 
     @Override
-    public void countTriangleArea() {
-        area = calculateTriangleArea(aSide, bSide, cSide);
+    public double area() {
+        double p = perimeter() / 2;
+        return Math.sqrt(p * (p - aSide) * (p - bSide) * (p - cSide));
     }
 
     public void showInfo() {
-        System.out.println("\nПериметр треугольника = " + perimeter +
-                "\nПлощадь треугольника = " + area +
+        System.out.println("\nПериметр треугольника = " + perimeter() +
+                "\nПлощадь треугольника = " + area() +
                 "\nЦвет заливки: " + areaColor +
                 "\nЦвет границы: " + borderColor);
     }

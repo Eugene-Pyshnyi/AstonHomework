@@ -3,6 +3,7 @@ import task1.Bowl;
 import task1.Cat;
 import task1.Dog;
 import task2.Circle;
+import task2.Color;
 import task2.Rectangle;
 import task2.Triangle;
 
@@ -45,13 +46,13 @@ public class Runner {
                 "Животных всего: " + Animal.getAnimalCount() + "\n");
 
         //task 2
-        Circle circle = new Circle(4.5);
+        Circle circle = new Circle(4.5, Color.GREEN, Color.ORANGE);
         circle.showInfo();
 
-        Triangle triangle = new Triangle(8, 8, 4);
+        Triangle triangle = new Triangle(8, 8, 4, Color.RED, Color.BLUE);
         triangle.showInfo();
 
-        Rectangle rectangle = new Rectangle(8, 5);
+        Rectangle rectangle = new Rectangle(8, 6, Color.BLACK, Color.WHITE);
         rectangle.showInfo();
     }
 }
