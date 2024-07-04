@@ -1,12 +1,23 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class FactorialTest {
+    private Factorial factorial;
+    @BeforeEach
+    public void setUp() {
+        factorial = new Factorial();
+    }
+
     @Test
-    public void printFactorial() {
-        Factorial factorial = new Factorial();
+    public void printFactorialPositive() {
         long result = factorial.printFactorial(3);
         assertEquals(6, result);
+    }
+    @Test
+    public void printFactorialNegative() {
+        assertThrows(IllegalArgumentException.class, () -> factorial.printFactorial(-1));
     }
 }
