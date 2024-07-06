@@ -1,3 +1,5 @@
+package Lesson10;
+
 public class Factorial {
     public long printFactorial(long factorial) {
         if (factorial < 0) {
