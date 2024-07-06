@@ -1,5 +1,7 @@
-import Exceptions.MyArrayDataException;
-import Exceptions.MyArraySizeException;
+package Lesson_8;
+
+import Lesson_8.Exceptions.MyArrayDataException;
+import Lesson_8.Exceptions.MyArraySizeException;
 
 public class Runner {
     public static void main(String[] args) {

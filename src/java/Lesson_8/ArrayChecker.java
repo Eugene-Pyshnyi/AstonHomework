@@ -1,10 +1,12 @@
-import Exceptions.MyArrayDataException;
-import Exceptions.MyArraySizeException;
+package Lesson_8;
+
+import Lesson_8.Exceptions.MyArrayDataException;
+import Lesson_8.Exceptions.MyArraySizeException;
 
 public class ArrayChecker {
     private int sum = 0;
 
-    public int arraySum(String[][] array) {
+    public int arraySum(String[][] array) throws MyArraySizeException, MyArrayDataException {
         if (array.length != 4) {
             throw new MyArraySizeException("Ожидаемое количество строк массива: 4");
         }
