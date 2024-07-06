@@ -1,3 +1,4 @@
+import Lesson10.Factorial;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
