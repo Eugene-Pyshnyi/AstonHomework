@@ -1,11 +1,13 @@
-import task1.Animal;
-import task1.Bowl;
-import task1.Cat;
-import task1.Dog;
-import task2.Circle;
-import task2.Color;
-import task2.Rectangle;
-import task2.Triangle;
+package Lesson7;
+
+import Lesson7.task1.Animal;
+import Lesson7.task1.Bowl;
+import Lesson7.task1.Cat;
+import Lesson7.task1.Dog;
+import Lesson7.task2.Circle;
+import Lesson7.task2.Color;
+import Lesson7.task2.Rectangle;
+import Lesson7.task2.Triangle;
 
 public class Runner {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package task2;
+package Lesson7.task2;
 
-import task2.interfaces.Area;
-import task2.interfaces.Perimeter;
+import Lesson7.task2.interfaces.Area;
+import Lesson7.task2.interfaces.Perimeter;
 
 public abstract class GeometricFigure implements Perimeter, Area {
     protected Color borderColor;

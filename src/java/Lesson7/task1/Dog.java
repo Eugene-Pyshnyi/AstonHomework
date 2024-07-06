@@ -1,6 +1,4 @@
-package task1;
-
-import task1.Animal;
+package Lesson7.task1;
 
 public class Dog extends Animal {
     private static int dogCount = 0;

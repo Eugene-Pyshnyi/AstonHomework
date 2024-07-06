@@ -1,4 +1,4 @@
-package task2;
+package Lesson7.task2;
 
 public enum Color {
     RED,

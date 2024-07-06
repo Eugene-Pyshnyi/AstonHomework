@@ -1,4 +1,4 @@
-package task2;
+package Lesson7.task2;
 
 public class Rectangle extends GeometricFigure {
     public double width;
