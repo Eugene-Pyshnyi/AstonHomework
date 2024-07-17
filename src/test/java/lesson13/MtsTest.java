@@ -5,10 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class MtsTest {
     private WebDriver driver;
@@ -18,7 +20,7 @@ public class MtsTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.mts.by/");
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlContains(""));
         WebElement click = driver.findElement(By.xpath("//button[contains(@class, \"cookie__cancel\")]"));
         click.click();
     }
