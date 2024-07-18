@@ -8,9 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class MtsTest {
     private WebDriver driver;
@@ -54,7 +57,8 @@ public class MtsTest {
     @Test(priority = 3)
     void linkTest() {
         WebElement readMore = driver.findElement(By.linkText("Подробнее о сервисе"));
-        Assert.assertTrue(readMore.isEnabled(), "Can not click the link");
+        readMore.click();
+        driver.navigate().back();
     }
 
     @Test(priority = 4)
@@ -66,7 +70,7 @@ public class MtsTest {
         money.sendKeys("10");
 
         WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
-        Assert.assertTrue(continueButton.isEnabled(), "Can not click this button");
+        continueButton.click();
     }
 
     @AfterClass
