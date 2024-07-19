@@ -57,6 +57,7 @@ public class MtsTest {
     @Test(priority = 3)
     void linkTest() {
         WebElement readMore = driver.findElement(By.linkText("Подробнее о сервисе"));
+        Assert.assertTrue(readMore.isEnabled());
         readMore.click();
         driver.navigate().back();
     }
@@ -70,6 +71,7 @@ public class MtsTest {
         money.sendKeys("10");
 
         WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
+        Assert.assertTrue(continueButton.isEnabled());
         continueButton.click();
     }
 
