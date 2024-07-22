@@ -79,8 +79,8 @@ public class MtsTest {
         Assert.assertTrue(continueButton.isEnabled());
     }
 
-//    @AfterClass
-//    void shutDown() {
-//        driver.quit();
-//    }
+    @AfterClass
+    void shutDown() {
+        driver.quit();
+    }
 }
