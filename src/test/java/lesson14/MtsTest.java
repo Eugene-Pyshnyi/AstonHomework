@@ -31,7 +31,7 @@ public class MtsTest {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//button[contains(@class, 'cookie__cancel')]")))).click();
     }
 
-    @Test(priority = 1)
+    @Test
     void communicationServiceTest() {
         String phoneNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//input[@id='connection-phone']"))).getAttribute("placeholder");
@@ -50,7 +50,7 @@ public class MtsTest {
         clickServiceButton();
     }
 
-    @Test(priority = 2)
+    @Test
     void homeInternetTest() {
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Домашний интернет']"))).click();
@@ -72,7 +72,7 @@ public class MtsTest {
         clickServiceButton();
     }
 
-    @Test(priority = 3)
+    @Test
     void installmentPlanTest() {
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Рассрочка']"))).click();
@@ -94,7 +94,7 @@ public class MtsTest {
         clickServiceButton();
     }
 
-    @Test(priority = 4)
+    @Test
     void debtTest() {
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Задолженность']"))).click();
@@ -117,7 +117,7 @@ public class MtsTest {
         clickServiceButton();
     }
 
-    @Test(priority = 5)
+    @Test
     void nextWindowTest() {
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Услуги связи']"))).click();
