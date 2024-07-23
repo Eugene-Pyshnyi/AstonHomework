@@ -46,12 +46,11 @@ public class MtsTest {
                 (By.xpath("//input[@id='connection-email']"))).getAttribute("placeholder");
         Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
-
-        clickServiceButton();
     }
 
     @Test
     void homeInternetTest() {
+        clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Домашний интернет']"))).click();
 
@@ -68,12 +67,11 @@ public class MtsTest {
                 (By.xpath("//input[@id='internet-email']"))).getAttribute("placeholder");
         Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
-
-        clickServiceButton();
     }
 
     @Test
     void installmentPlanTest() {
+        clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Рассрочка']"))).click();
 
@@ -90,12 +88,11 @@ public class MtsTest {
                 (By.xpath("//input[@id='instalment-email']"))).getAttribute("placeholder");
         Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
-
-        clickServiceButton();
     }
 
     @Test
     void debtTest() {
+        clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Задолженность']"))).click();
 
@@ -113,12 +110,11 @@ public class MtsTest {
                 (By.xpath("//input[@id='arrears-email']"))).getAttribute("placeholder");
         Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
-
-        clickServiceButton();
     }
 
     @Test
     void nextWindowTest() {
+        clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//li[@class='select__item']//p[text()='Услуги связи']"))).click();
 
@@ -171,6 +167,6 @@ public class MtsTest {
 
     private void clickServiceButton() {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='select__header']"))).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
     }
 }
