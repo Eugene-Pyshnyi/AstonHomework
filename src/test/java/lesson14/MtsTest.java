@@ -52,7 +52,7 @@ public class MtsTest {
     void homeInternetTest() {
         clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("//li[@class='select__item']//p[text()='Домашний интернет']"))).click();
+                (By.xpath("//p[@class='select__option'][text()='Домашний интернет']"))).click();
 
         String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//input[@id='internet-phone']"))).getAttribute("placeholder");
@@ -73,7 +73,7 @@ public class MtsTest {
     void installmentPlanTest() {
         clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("//li[@class='select__item']//p[text()='Рассрочка']"))).click();
+                (By.xpath("//p[@class='select__option'][text()='Рассрочка']"))).click();
 
         String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//input[@id='score-instalment']"))).getAttribute("placeholder");
@@ -94,7 +94,7 @@ public class MtsTest {
     void debtTest() {
         clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("//li[@class='select__item']//p[text()='Задолженность']"))).click();
+                (By.xpath("//p[@class='select__option'][text()='Задолженность']"))).click();
 
         String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//input[@id='score-arrears']"))).getAttribute("placeholder");
@@ -116,7 +116,7 @@ public class MtsTest {
     void nextWindowTest() {
         clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("//li[@class='select__item']//p[text()='Услуги связи']"))).click();
+                (By.xpath("//p[@class='select__option'][text()='Услуги связи']"))).click();
 
         WebElement phoneNumberField = driver.findElement(By.xpath("//*[@id='connection-phone']"));
         WebElement sumField = driver.findElement(By.xpath("//*[@id='connection-sum']"));
