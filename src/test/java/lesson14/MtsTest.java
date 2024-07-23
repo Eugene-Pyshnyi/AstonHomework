@@ -170,7 +170,7 @@ public class MtsTest {
     }
 
     private void clickServiceButton() {
-        driver.findElement(By.xpath("//button[@class='select__header']")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='select__header']"))).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 }
