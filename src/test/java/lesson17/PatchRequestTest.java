@@ -1,4 +1,4 @@
-package lesson16;
+package lesson17;
 
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
