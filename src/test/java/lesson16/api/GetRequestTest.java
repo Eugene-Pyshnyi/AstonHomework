@@ -1,6 +1,6 @@
 package lesson16.api;
 
-import lesson16.Specifications;
+import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,22 +9,22 @@ import static org.hamcrest.Matchers.*;
 public class GetRequestTest {
     @Test
     void getRequest() {
-        Specifications.installSpecs(Specifications.requestSpec(), Specifications.responseSpec200());
-
         given()
+                .baseUri("https://postman-echo.com")
+                .contentType(ContentType.JSON)
                 .when()
-                .get("get?foo1=bar1&foo2=bar2")
+                .get("/get")
                 .then().log().body() //На всякий случай вывожу в консоль тело ответа
                 .assertThat()
-                .body("args.foo1", is("bar1"))
-                .and().body("args.foo2", is("bar2"))
-                .and().body("headers.host", is("postman-echo.com"))
+                .statusCode(200)
+                .body("args", anEmptyMap())
+                .and().body("headers.host", equalTo("postman-echo.com"))
                 .and().body("headers.x-request-start", instanceOf(String.class))
-                .and().body("headers.x-forwarded-proto", is("https"))
+                .and().body("headers.x-forwarded-proto", equalTo("https"))
                 .and().body("headers.x-amzn-trace-id", instanceOf(String.class))
                 .and().body("headers.user-agent", instanceOf(String.class))
-                .and().body("headers.accept", is("*/*"))
+                .and().body("headers.accept", equalTo("*/*"))
                 .and().body("headers.accept-encoding", instanceOf(String.class))
-                .and().body("url", is("https://postman-echo.com/get?foo1=bar1&foo2=bar2"));
+                .and().body("url", equalTo("https://postman-echo.com/get"));
     }
 }

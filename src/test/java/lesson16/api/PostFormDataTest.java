@@ -6,18 +6,21 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class PostRawTextTest {
+public class PostFormDataTest {
     @Test
-    void postRawText() {
+    void postFromData() {
         given()
                 .when()
                 .baseUri("https://postman-echo.com")
-                .contentType(ContentType.TEXT)
-                .body("{\n    \"test\": \"value\"\n}")
+                .contentType(ContentType.URLENC.withCharset("UTF-8"))
+                .formParam("foo1", "bar1")
+                .and().formParam("foo2", "bar2")
                 .post("/post")
-                .then().log().all()
+                .then()
                 .assertThat()
+                .log().all()
                 .statusCode(200)
-                .body("data", equalTo("{\n    \"test\": \"value\"\n}"));
+                .body("form.foo1", equalTo("bar1"))
+                .and().body("form.foo2", equalTo("bar2"));
     }
 }
