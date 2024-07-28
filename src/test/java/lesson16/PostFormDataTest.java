@@ -1,4 +1,4 @@
-package lesson16.api;
+package lesson16;
 
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
