@@ -3,7 +3,6 @@ package lesson14;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +18,7 @@ import java.util.Arrays;
 public class MtsTest {
     private WebDriver driver;
     private WebDriverWait wait;
+    private MTS mts;
 
     @BeforeClass
     void setup() {
@@ -27,107 +27,79 @@ public class MtsTest {
         driver.manage().window().maximize();
         driver.get("https://www.mts.by/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='cookie__wrapper']"))));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//button[contains(@class, 'cookie__cancel')]")))).click();
+        mts = new MTS(driver);
+        mts.cancelCookies();
     }
 
     @Test
     void communicationServiceTest() {
-        String phoneNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='connection-phone']"))).getAttribute("placeholder");
-        Assert.assertEquals(phoneNumberPlaceholder, "Номер телефона",
+        Assert.assertEquals(mts.getConnectionPhoneField().getAttribute("placeholder"), "Номер телефона",
                 "Ожидаемый текст внутри незаполненного поля: Номер телефона");
 
-        String sumFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='connection-sum']"))).getAttribute("placeholder");
-        Assert.assertEquals(sumFieldText, "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
+        Assert.assertEquals(mts.getConnectionSumField().getAttribute("placeholder"),
+                "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
 
-        String emailFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='connection-email']"))).getAttribute("placeholder");
-        Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
+        Assert.assertEquals(mts.getConnectionEmailField().getAttribute("placeholder"), "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
     }
 
     @Test
     void homeInternetTest() {
-        clickServiceButton();
-        wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("//p[@class='select__option'][text()='Домашний интернет']"))).click();
+        mts.clickServiceButton();
 
-        String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='internet-phone']"))).getAttribute("placeholder");
-        Assert.assertEquals(userNumberPlaceholder, "Номер абонента",
+        Assert.assertEquals(mts.getInternetUserNumberField().getAttribute("placeholder"), "Номер абонента",
                 "Ожидаемый текст внутри незаполненного поля: ");
 
-        String sumFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='internet-sum']"))).getAttribute("placeholder");
-        Assert.assertEquals(sumFieldText, "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
+        Assert.assertEquals(mts.getInternetSumField().getAttribute("placeholder"),
+                "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
 
-        String emailFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='internet-email']"))).getAttribute("placeholder");
-        Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
+        Assert.assertEquals(mts.getInternetEmailField().getAttribute("placeholder"), "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
     }
 
     @Test
     void installmentPlanTest() {
-        clickServiceButton();
+        mts.clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//p[@class='select__option'][text()='Рассрочка']"))).click();
 
-        String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='score-instalment']"))).getAttribute("placeholder");
-        Assert.assertEquals(userNumberPlaceholder, "Номер счета на 44",
+        Assert.assertEquals(mts.getScoreInstalmentField().getAttribute("placeholder"), "Номер счета на 44",
                 "Ожидаемый текст внутри незаполненного поля: Номер счета на 44");
 
-        String sumFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='instalment-sum']"))).getAttribute("placeholder");
-        Assert.assertEquals(sumFieldText, "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
+        Assert.assertEquals(mts.getSumInstalmentField().getAttribute("placeholder"),
+                "Сумма", "Ожидаемый текст внутри незаполненного поля: Сумма");
 
-        String emailFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='instalment-email']"))).getAttribute("placeholder");
-        Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
+        Assert.assertEquals(mts.getEmailInstalmentField().getAttribute("placeholder"), "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
     }
 
     @Test
     void debtTest() {
-        clickServiceButton();
+        mts.clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//p[@class='select__option'][text()='Задолженность']"))).click();
 
-        String userNumberPlaceholder = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='score-arrears']"))).getAttribute("placeholder");
-        Assert.assertEquals(userNumberPlaceholder, "Номер счета на 2073",
+        Assert.assertEquals(mts.getScoreArrearsField().getAttribute("placeholder"), "Номер счета на 2073",
                 "Ожидаемый текст внутри незаполненного поля: Номер счета на 2073");
 
-        String sumFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='arrears-sum']"))).getAttribute("placeholder");
-        Assert.assertEquals(sumFieldText, "Сумма",
+        Assert.assertEquals(mts.getArrearsSumField().getAttribute("placeholder"), "Сумма",
                 "Ожидаемый текст внутри незаполненного поля: Сумма");
 
-        String emailFieldText = wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//input[@id='arrears-email']"))).getAttribute("placeholder");
-        Assert.assertEquals(emailFieldText, "E-mail для отправки чека",
+        Assert.assertEquals(mts.getArrearsEmailField().getAttribute("placeholder"), "E-mail для отправки чека",
                 "Ожидаемый текст внутри незаполненного поля: E-mail для отправки чека");
     }
 
     @Test
     void nextWindowTest() {
-        clickServiceButton();
+        mts.clickServiceButton();
         wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//p[@class='select__option'][text()='Услуги связи']"))).click();
 
-        WebElement phoneNumberField = driver.findElement(By.xpath("//*[@id='connection-phone']"));
-        WebElement sumField = driver.findElement(By.xpath("//*[@id='connection-sum']"));
-        WebElement continueButton = driver.findElement(By.xpath("//*[@id='pay-connection']/button"));
+        mts.getConnectionPhoneField().sendKeys("297777777");
+        mts.getConnectionSumField().sendKeys("10");
+        mts.clickContinueButton();
 
-        phoneNumberField.sendKeys("297777777");
-        sumField.sendKeys("10");
-        continueButton.click();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[@class='bepaid-iframe']")));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(mts.getPaymentIframe()));
 
         Assert.assertEquals("10.00 BYN", wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.cssSelector(".pay-description__cost > span:nth-child(1)"))).getText());
@@ -163,10 +135,5 @@ public class MtsTest {
     @AfterClass
     void exit() {
         driver.quit();
-    }
-
-    private void clickServiceButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='select__header']"))).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
     }
 }
